@@ -1,0 +1,23 @@
+<div class="translate">
+  <div class="from-lang">
+    <select [(ngModel)]="source" name="source">
+      @for(language of languages; track $index) {
+        <option [ngValue]="language.language"> {{ language.language }} </option>
+      }
+    </select>
+    <textarea class="text" [(ngModel)]="textToTranslate"></textarea>
+    <button (click)="translate()"> Translate </button>
+  </div>
+  <div class="to-lang">
+    <select [(ngModel)]="target" name="target" required>
+      @for(language of languages; track $index) {
+        <option [ngValue]="language.language"> {{ language.language }} </option>
+      }
+    </select>
+    <textarea class="text" [(ngModel)]="translation[0].translatedText" disabled></textarea>
+  </div>
+
+  <div>
+    {{source}},{{target}},{{textToTranslate}}
+  </div>
+</div>
