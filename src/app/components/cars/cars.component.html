@@ -1,0 +1,27 @@
+<div>
+  @for(maker of makers; track $index) {
+    <div> <a class="fs-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getMakerModels(maker.id)"> {{ maker.name }} </a> </div>
+  }
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Lista de Modelos</h5>
+      </div>
+      <div class="modal-body">
+        @for(models of currentMaker.models; track $index) {
+          <h3> {{ models.name }}</h3>
+        }
+      </div>
+    </div>
+  </div>
+</div>
